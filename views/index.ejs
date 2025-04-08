@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %>
+
+    <main class="main-home-page">
+        <section class="hero">
+            <h1 class="title">Find Your Next Breakthrough Read</h1>
+            <p class="description">Welcome to The Inner Shelf—a space where I share personal reflections, reviews, and lessons from self-help books that have guided my journey. Discover actionable insights and meaningful takeaways to help you choose your next great read.</p>
+        </section>
+
+        <section class="review-cards">
+            <form class="sort-links" action="/sort" method="get">
+                <span class="sort-by">Sorty By:</span>
+                <a href="/sort/date_read" class="<%= criteria === 'date_read' ? 'active-sort' : '' %>">Recent</a>
+                <a href="/sort/rating" class="<%= criteria === 'rating' ? 'active-sort' : '' %>">Rating</a>
+                <a href="/sort/title" class="<%= criteria === 'title' ? 'active-sort' : '' %>">Title</a>
+            </form>
+
+            <section class="book-list">
+                <% bookList.forEach(book => {%>
+                    <article class="book-card">
+                        <div class="book-cover-wrapper">
+                            <img src="<%= book.cover %>" alt="Cover of <%= book.title %>" class="book-cover" style="max-height: 200px;">
+                        </div>
+                        
+                        <div class="review-content">
+                            <h2 class="book-title"><%= book.title %></h2>
+                            <p class="book-author">By <%= book.author %></p>
+                            <p class="date-read"><strong>Date Read: </strong><%= book.formattedDate %></p>
+                            <p class="rating"><strong>Rating:</strong> <%= book.rating %> ⭐️</p>
+                            <p class="key-takeaway"><strong>Key Takeaway:</strong> <%= book.key_takeaway %></p>
+                            
+                            <div class="action-button-wrapper">
+                                <a href="/edit/<%=book.id%>" class="edit-button">
+                                    <img src="/assets/edit.svg" alt="edit button" style="max-height: 25px;">
+                                </a>
+                                <a href="/delete/<%=book.id%>" class="delete-button">
+                                    <img src="/assets/delete.svg" alt="delete button" style="max-height: 25px;">
+                                </a>
+                            </div>
+                            
+                            <div class="review-button-wrapper">
+                                <button class="read-review-button read-review-<%=book.id%>" onclick="showReview('<%=book.id%>')">Read Review &or;</button>
+                                <button class="hide-review-button hide-review-<%=book.id%> hidden" onclick="hideReview('<%=book.id%>')">Hide Review &and;</button>
+                            </div>
+                        </div>
+
+                        <div class="review-wrapper review-<%=book.id%> hidden">
+                            <p class="review"><strong>Review:</strong> <%= book.review%></p>
+                        </div>
+                    </article>
+                <% }) %>
+            </section>
+
+        </section>
+    </main>
+
+<%- include('partials/footer.ejs') %>

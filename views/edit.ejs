@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+
+<main class="form-container">
+    <form action="/edit" method="post" class="form-wrapper">
+        <input type="hidden" name="bookId" value="<%= book.id %>">
+
+        <label for="form-book-title">Title:</label>
+        <input type="text" id="form-book-title" name="title" value="<%=book.title%>">
+
+        <label for="form-book-author">Author:</label>
+        <input type="text" id="form-book-author" name="author" value="<%=book.author%>">
+
+        <label for="form-book-isbn">ISBN:</label>
+        <input type="numeric" id="form-book-isbn" name="isbn" size="13" value="<%=book.isbn%>">
+
+        <label for="form-book-date">Date Read:</label>
+        <input type="date" id="form-book-date" name="date" value="<%=book.date_read.toISOString().split('T')[0]%>">
+
+        <label for="form-book-rating">Rating:</label>
+        <input type="number" id="form-book-rating" min="1" max="5" value="<%=book.rating%>" name="rating">
+
+        <label for="form-book-takeaway">Key Takeaway:</label>
+        <textarea type="text" id="form-book-takeaway" name="takeaway"><%=book.key_takeaway%></textarea>
+
+        <label for="form-book-review">Review:</label>
+        <textarea type="text" id="form-book-review" name="review"><%=book.review%></textarea>
+        
+        <input type="submit" class="form-review-submit-button">
+    </form>
+</main>
+
+<%- include('partials/footer.ejs') %>

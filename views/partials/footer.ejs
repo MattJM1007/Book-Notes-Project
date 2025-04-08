@@ -1,0 +1,19 @@
+<footer>
+    &copy; Copyright Matthew Miguel <%= new Date().getFullYear() %>
+ </footer>
+
+ <script>
+    function showReview (id) {
+        document.querySelector('.read-review-' + id).classList.add("hidden");
+        document.querySelector('.hide-review-' + id).classList.remove("hidden");
+        document.querySelector('.review-' + id).classList.remove("hidden");
+    }
+
+    function hideReview (id) {
+        document.querySelector(`.read-review-${id}`).classList.remove("hidden");
+        document.querySelector(`.hide-review-${id}`).classList.add("hidden");
+        document.querySelector(`.review-${id}`).classList.add("hidden");
+    }
+ </script>
+</body>
+</html>

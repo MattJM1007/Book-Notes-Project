@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+<main class="form-container">
+    <form action="/submitreview" method="post" class="form-wrapper">
+        <label for="form-book-title">Title:</label>
+        <input type="text" id="form-book-title" name="title">
+
+        <label for="form-book-author">Author:</label>
+        <input type="text" id="form-book-author" name="author">
+
+        <label for="form-book-isbn">ISBN:</label>
+        <input type="numeric" id="form-book-isbn" name="isbn" size="13">
+
+        <label for="form-book-date">Date Read:</label>
+        <input type="date" id="form-book-date" name="date">
+
+        <label for="form-book-rating">Rating:</label>
+        <input type="number" id="form-book-rating" min="1" max="5" name="rating">
+
+        <label for="form-book-takeaway">Key Takeaway:</label>
+        <textarea type="text" id="form-book-takeaway" name="takeaway"></textarea>
+
+        <label for="form-book-review">Review:</label>
+        <textarea type="text" id="form-book-review" name="review"></textarea>
+        
+        <input type="submit" class="form-review-submit-button">
+    </form>
+</main>
+
+<%- include('partials/footer.ejs') %>
