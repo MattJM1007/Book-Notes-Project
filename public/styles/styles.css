@@ -66,6 +66,9 @@ body{
 nav ol {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-inline-end: auto;
 
@@ -265,7 +268,7 @@ footer {
         margin-block-end: 0.5rem;
     }
 
-    & input, textarea {
+    & input, textarea, button {
         margin-block-end: 1rem;
         block-size: 2rem;
         padding: 1rem;
@@ -282,7 +285,7 @@ footer {
         min-block-size: 20rem;
     }
 
-    & .form-review-submit-button {
+    & .form-review-submit-button, .login-button {
         background-color: var(--clr-accent);
         color: white;
         block-size: fit-content;
@@ -292,6 +295,7 @@ footer {
         margin-inline: auto;
     }
 }
+
 
 
 

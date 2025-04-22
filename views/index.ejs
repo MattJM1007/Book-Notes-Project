@@ -28,14 +28,16 @@
                             <p class="rating"><strong>Rating:</strong> <%= book.rating %> ⭐️</p>
                             <p class="key-takeaway"><strong>Key Takeaway:</strong> <%= book.key_takeaway %></p>
                             
-                            <div class="action-button-wrapper">
-                                <a href="/edit/<%=book.id%>" class="edit-button">
-                                    <img src="/assets/edit.svg" alt="edit button" style="max-height: 25px;">
-                                </a>
-                                <a href="/delete/<%=book.id%>" class="delete-button">
-                                    <img src="/assets/delete.svg" alt="delete button" style="max-height: 25px;">
-                                </a>
-                            </div>
+                            <% if(authorization) { %>
+                                <div class="action-button-wrapper">
+                                    <a href="/edit/<%=book.id%>" class="edit-button">
+                                        <img src="/assets/edit.svg" alt="edit button" style="max-height: 25px;">
+                                    </a>
+                                    <a href="/delete/<%=book.id%>" class="delete-button">
+                                        <img src="/assets/delete.svg" alt="delete button" style="max-height: 25px;">
+                                    </a>
+                                </div>
+                            <% } %>
                             
                             <div class="review-button-wrapper">
                                 <button class="read-review-button read-review-<%=book.id%>" onclick="showReview('<%=book.id%>')">Read Review &or;</button>

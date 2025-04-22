@@ -16,6 +16,12 @@ CREATE TABLE reviews (
     review TEXT
 );
 
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(100) UNIQUE NOT NULL,
+	password TEXT NOT NULL
+)
+
 --Joined table to make data variable for ejs
 SELECT b.id, b.title, b.author, b.isbn, b.cover, r.date_read, r.rating, r.key_takeaway, r.review 
 FROM books AS b 
